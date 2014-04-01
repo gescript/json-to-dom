@@ -1,0 +1,138 @@
+<html>
+  <head>
+    <title>JSON-to-DOM jQuery tests</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  </head>
+  <body>
+  	<!-- Example 1 -->
+    <div class="note">
+      <p class="title">title</p>
+      <ul class="tags">
+        <li class="tag">
+          <span class="name">tag</span>
+        </li>
+      </ul>
+    </div>
+    <br/>
+  	<!-- Example 2 -->
+  	<div class="email">
+	  <div class="subject">subject</div>
+	  <div class="from">from</div>
+	  <div class="to">to</div>
+	  <div class="message">message</div>
+	</div>
+    <br/>
+  	<!-- Example 3 -->
+	<div class="book">
+		<textarea class="chapter">chapter</textarea>
+	</div>
+    <br/>
+  	<!-- Example 4 -->
+    <div class="testa">
+	    <div class="test1">
+	    	<div class="test2">
+	    		<div class="test3">
+	    			<div class="test4">test4</div>
+	    		</div>
+	    	</div>
+	    </div>
+    </div>
+    <br/>
+  	<!-- Example 5 -->
+    <div class="testb">
+	    <div class="test1b">
+	    	<div class="test2b">
+	    		<div class="test3b">
+	    			<div class="test4b">test4b</div>
+	    		</div>
+	    	</div>
+	    </div>
+    </div>
+    <br/>
+  	<!-- Example 6 -->
+    <select class="testSel">
+    	<option class="testOpt">optText</option>
+    </select>
+    <br/>
+  	<!-- Example 7 -->
+    <div class="testOthers">
+    	<a class="testAnchor">testAnchor</a>
+    	<br/>
+    	<img class="testImg"/>
+    	<br/>
+    	<button class="testButton">testButton</button>
+    	<br/>
+    </div>
+  </body>
+  <script src="../js/jquery-1.8.3.min.js"></script>
+  <script src="../js/jsonToDomJQ.js"></script>
+  <script type="text/javascript">
+	// Example 1 
+	var json = {
+		title : 'JavaScript',
+		tags : [
+			{ tag: { name : 'programming' } },
+			{ tag: { name : 'jQuery' } }
+		]
+	};
+	var jsonToDom = new $.jsonToDom();
+	jsonToDom.render('.note', json);
+	
+	// Example 2
+	var email = {
+		subject : 'You inherited $11.3 million from the death of your uncle',
+		from : 'money@nigeria.com',
+		to : 'matt@matt.com',
+		message : 'Reply with your bank credentials so we can send you the money'
+	};
+	var jsonToDomEmail = new $.jsonToDom();
+	jsonToDomEmail.render('.email', email);
+	
+	// Example 3
+	var book = [
+		{ chapter : "111111" },
+		{ chapter : "222222" },
+		{ chapter : "333333" }
+	];
+	var jsonToDomBook = new $.jsonToDom();
+	jsonToDomBook.render('.book', book);
+	
+	// Example 4
+	var jsonA = {
+		test1 : { test2 : { test3 : { test4: "passed A" } } }
+	};
+	var jsonToDom2 = new $.jsonToDom();
+	jsonToDom2.render('.testa', jsonA);
+	
+	// Example 5
+	var jsonB = [
+		{ test1b : [ 
+			{ test2b : [ 
+				{ test3b : [
+					{ test4b: "passed B" } 
+				] } 
+			] } 
+		] }
+	];
+	var jsonToDom3 = new $.jsonToDom();
+	jsonToDom3.render('.testb', jsonB);
+	
+	// Example 6
+	var jsonSel = [
+		{ testOpt : "{\"value\":\"1\",\"text\":\"One\"}" },
+		{ testOpt : "{\"value\":\"2\",\"text\":\"Two\"}" }
+	];
+	var jsonToDomSel = new $.jsonToDom();
+	jsonToDomSel.render('.testSel', jsonSel);
+	
+	// Example 7
+	var jsonOthers = {
+		testAnchor : "{\"href\":\"https://github.com/gescript/json-to-dom\",\"title\":\"jQuery json-to-dom\",\"text\":\"jQuery json-to-dom\"}" ,
+		testImg : "{\"src\":\"./img/dotsLine.gif\",\"alt\":\"Dots line\",\"title\":\"Dots line Image\"}",
+		testButton : " Test Button "
+	};
+	var jsonToDomOthers = new $.jsonToDom();
+	jsonToDomOthers.render('.testOthers', jsonOthers);
+	
+  </script>
+</html>

@@ -1,19 +1,16 @@
 {
   "name": "json-to-dom",
-  "repo": "matthewmueller/json-to-dom",
-  "twitter": "@mattmueller",
-  "description": "fill in dom nodes with json",
-  "version": "0.0.2",
-  "keywords": ["dom", "json", "json-to-dom"],
+  "repo": "gescript/json-to-dom",
+  "basedon": "MatthewMueller/json-to-dom",
+  "twitter": "@gescript",
+  "description": "fill in dom nodes with json (jQuery Plugin)",
+  "version": "0.0.1",
+  "keywords": ["dom", "json", "json-to-dom", "jquery"],
   "dependencies": {
-    "yields/isArray" : "*",
-    "matthewmueller/isObject" : "*"
-  },
-  "development": {
-    "component/assert" : "*"
+    "jquery" : "1.8.3"
   },
   "license": "MIT",
   "scripts": [
-    "index.js"
+    "jsonToDomJQ.js"
   ]
 }
